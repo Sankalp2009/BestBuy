@@ -9,6 +9,7 @@ const DB = process.env.DATABASE_URL;
 //1. Connecting to MongoDB
 var connection = mongoose.connect(DB)
 
+
 app.listen(8080,async()=>
 {  
     try {
