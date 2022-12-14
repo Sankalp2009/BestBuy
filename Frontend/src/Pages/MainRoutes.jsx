@@ -1,11 +1,19 @@
-// import React from 'react'
-// import { Route, Routes } from 'react-router-dom';
+import React from 'react'
+import {Routes,Route} from 'react-router-dom'
+import Home from './Home'
 
-// const MainRoutes = () => {
-//     return (
-//        <>
-//        <h1>Routes</h1>
-//        </>
-//     );
-// }
-// export default MainRoutes
+
+
+const AllRoutes = () => {
+  return (
+    <div>
+        <Routes>
+        <Route path='/' element={<Home/>}></Route>
+       
+        
+        </Routes>
+    </div>
+  )
+}
+
+export default AllRoutes
