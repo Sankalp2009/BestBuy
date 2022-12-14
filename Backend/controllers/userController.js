@@ -3,8 +3,8 @@ const {User} = require('./../Model/UserModel');
 const jwt = require("jsonwebtoken")
 const bcrypt = require('bcrypt');
 
-exports.SignUp = async (req, res) => {
-    console.log(req.body)
+exports.SignUp = async (req, res) => 
+{
     const {first_Name, last_Name, mobile_number,email, password,confirm} = req.body;
     const userPresent = await User.findOne({email})
 
@@ -17,19 +17,24 @@ exports.SignUp = async (req, res) => {
                 const user = new User({first_Name,last_Name,mobile_number,email,password:hash,confirm:hash})
                 console.log(user);
                 await user.save()
-                res.send({"msg":"Sign up successfull"})
+                res.status(202).json({
+                    "msg":"Sign up successful",
+                    "user":user,
+                })
             });
            
         }
-       catch(err){
-            console.log(err)
-            res.send({"err":"Something went wrong, pls try again later"})
+       catch(err)
+       {
+            res.status(404).json({
+                status:"Fail",
+                Error: err,
+
+            })
        }
     }
     
 }
-
-
 
 exports.Login =  async (req, res) => {
     const {email, password} = req.body;
@@ -41,7 +46,10 @@ exports.Login =  async (req, res) => {
         bcrypt.compare(password, hashed_password, function(err, result) {
             if(result){
                 const token = jwt.sign({"userID":user[0]._id}, 'hush');
-                res.send({"msg":"Login successfull","token" : token})
+                res.status(202).json({
+                    msg:"Login successful",
+                    token : token,
+            })
             }
             else{
                 res.send({"err":"Invalid Password"})
