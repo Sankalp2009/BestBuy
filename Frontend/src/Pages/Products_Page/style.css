@@ -8,38 +8,48 @@
 }
 
 /* swipeee */
-#trending {
-  margin: auto;
-  font-size: 24px;
-  margin-bottom: 40px;
+.mySwiper{
   width: 100%;
+  height: 100%;
 }
 
-#trending > h2 {
-  margin-left: 32px;
-  font-size: 28px;
-  margin-bottom: 30px;
-  font-weight: 600;
+.slide-content {
+  background-color: whitesmoke;
+  width: 300px;
+  height: 450px;
+  margin: auto;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 }
-
-.imgdiv img {
-  max-width: 100%;
-  border-radius: 5px;
+.user-image {
+  width: 200px;
+  height: 90px;
+  background-color: whitesmoke;
+  border-radius: 45px;
+  justify-content: center;
+  align-items: center;
 }
-
-.sliderdiv .container {
-  padding: 0px 15px;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0px 32px;
+.user-photo {
+  margin-top: -50%;
+  width: 115%;
+  height: 180%;
+  display: block;
 }
-
-.card_slider {
-  padding: 50px 0px;
+.user-name {
+  color:gray;
 }
-
-.swiper-button-next,
-.swiper-button-prev {
-  color: black;
-  margin-right: -10px;
+.user-price {
+  font-size: large;
+  color: red;
+}
+.swiper {
+  width: 95%;
+  height: 100%;
 }

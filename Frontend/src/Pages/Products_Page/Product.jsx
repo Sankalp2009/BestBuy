@@ -17,11 +17,11 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import banner from "../../Assets/Banner.jpg";
 import "./style.css";
 import Slider from "./Slider";
+import ProductsInfo from "../../Components/Products/ProductsInfo";
 
 const Product = () => {
   return (
     <>
-      {/* <Navbar/> */}
       <h1 style={{ textAlign: "left" }}>Laptops</h1>
       <img src={banner} className="banner" alt="banner" />
       <Box h="180px" bg="#0046bf" mt="50px">
@@ -139,8 +139,8 @@ const Product = () => {
       </Flex>
       <br />
       <br />
-      {/* <Slider /> */}
-      {/* <Footer/> */}
+      <Slider />
+      {/* <ProductsInfo /> */}
     </>
   );
 };

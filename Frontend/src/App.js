@@ -7,7 +7,7 @@ function App() {
    // Do not modify anything in this file
   return (
     <div className="App">
-      {/* <Navbar/> */}
+      <Navbar/>
       <MainRoutes/>
     </div>
   );

@@ -10,7 +10,7 @@ const DB = process.env.DATABASE_URL;
 var connection = mongoose.connect(DB)
 
 
-app.listen(8080,async()=>
+app.listen(8000,async()=>
 {  
     try {
         await connection ;
@@ -18,5 +18,5 @@ app.listen(8080,async()=>
     } catch (error) {
         console.log(error);
     }
-    console.log(`Server running at http://127.0.0.1:${8080}`);
+    console.log(`Server running at http://127.0.0.1:${8000}`);
 })
