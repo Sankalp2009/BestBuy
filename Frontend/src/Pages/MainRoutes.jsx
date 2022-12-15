@@ -1,11 +1,14 @@
-// import React from 'react'
-// import { Route, Routes } from 'react-router-dom';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Product from "./Products_Page/Product";
 
-// const MainRoutes = () => {
-//     return (
-//        <>
-//        <h1>Routes</h1>
-//        </>
-//     );
-// }
-// export default MainRoutes
+const MainRoutes = () => {
+  return (
+    <>
+      <Routes>
+        <Route path="/product" element={<Product />} />
+      </Routes>
+    </>
+  );
+};
+export default MainRoutes;

@@ -1,0 +1,45 @@
+* {
+  margin: 0%;
+}
+.banner {
+  width: 99.9%;
+  height: 50%;
+  background-repeat: no-repeat;
+}
+
+/* swipeee */
+#trending {
+  margin: auto;
+  font-size: 24px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+#trending > h2 {
+  margin-left: 32px;
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.imgdiv img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.sliderdiv .container {
+  padding: 0px 15px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0px 32px;
+}
+
+.card_slider {
+  padding: 50px 0px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: black;
+  margin-right: -10px;
+}
