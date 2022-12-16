@@ -106,20 +106,116 @@ text-align: left;
 }
 .home_newarrival_item{
     display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
+    margin: auto;
+    gap: 1rem;
     margin-top: 2rem;
 }
 .home_newarrival_card{
-
+    width: 18%;
+    height: 15%;
     border: 1px solid gray;
+    margin: auto;
 }
 .home_newarrival_card>img{
-    width: 100%;
-    height: 80%;
-    padding: 10%;
+    width: 70%;
+    height: 15%;
+ overflow: hidden;
+    padding: 5%;
+    margin: auto;
 }
 .home_newarrival_card>h6{
     color: rgb(59, 59, 247);
     padding: 1rem;
     padding-bottom: 2rem;
+}
+.home_banner{
+    background-color: teal;
+ margin-top: 20px;
+    display: flex;
+    padding: 3rem;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.home_banner_left>h1{
+font-size: 35px;
+font-weight: 500;
+color: white;
+margin-left: 20px;
+ }
+.home_banner_right{
+   margin-left: 1px;
+   margin-top: 10px;
+}
+.home_banner_right_button{
+    background-color: white;
+    color: teal;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 400;
+    padding: 8px;
+    
+}
+.home_banner_right_button:hover{
+    background-color: teal;
+    color: white;
+ border: 1px solid white;
+cursor: pointer;
+ 
+    
+}
+.home_features{
+    padding: 15px;
+}
+.home_features>h4{
+    text-align: left;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.home_features_item{
+display: flex;
+gap: 10px;
+flex-wrap: wrap;
+
+}
+.home_features_card{
+    margin-top: 15px;
+    text-align: left;
+    padding: 20px;
+    border-right: 1px solid lightgrey;
+    width: 30%;
+
+}
+.home_features_card>img{
+    width: 90%;
+    margin: auto;
+}
+.home_features_card>h3{
+color: rgb(65, 65, 252);
+margin-top: 10px;
+
+}
+.home_features_card>p{
+    font-size:12px;
+    margin-top: 10px;
+}
+.highlighted_text{
+    color: rgb(211, 211, 3);
+}
+@media (max-width: 850px){
+    .home_newarrival_item{
+        gap: 0.5rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+    }
+    .home_newarrival_card{
+        width: 150px;
+        height: 15%;
+    }
+    .home_newarrival_card>img{
+        width: 70%;
+        height: 15%;
+        padding: 5%;
+    } 
 }
