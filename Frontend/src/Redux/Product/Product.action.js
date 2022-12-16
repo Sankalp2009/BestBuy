@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ERROR, GET_REQUEST, GET_SUCCESS, GET_SUCCESS_FILTER, SORT_RATING,SORT_LTH, SORT_HTL } from "./Product.types";
+import { GET_ERROR, GET_REQUEST, GET_SUCCESS, GET_SUCCESS_FILTER, SORT_RATING, SORT_LTH, SORT_HTL } from "./Product.types";
 
 export const getRequest = () => ({
     type: GET_REQUEST,
@@ -14,22 +14,13 @@ export const getError = () => ({
     type: GET_ERROR,
 });
 
-export const getData = (id) => async (dispatch) => {
+export const getData = (page = 1) => async (dispatch) => {
     dispatch(getRequest());
     try {
-        let { data } = await axios.get(`${process.env.REACT_APP_URL}/api/v1/Products`);
+        let response = await axios.get(`${process.env.REACT_APP_URL}/api/v1/Products`);
+        const data = response.data
+        console.log(data)
 
-        let finaldata;
-        if (id !== "topdeals") {
-            let filter = data.product.filter((el) => {
-                return el.brand[0] === id;
-            });
-            finaldata = filter;
-            console.log(filter);
-        } else {
-            finaldata = data.product;
-        }
-        dispatch(getSuccess(finaldata));
     } catch (e) {
         console.log(e);
         dispatch(getError());

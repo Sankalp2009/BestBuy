@@ -6,7 +6,9 @@
   height: 50%;
   background-repeat: no-repeat;
 }
-
+.lap{
+  padding-top: 5%;
+}
 /* swipeee */
 .mySwiper{
   width: 100%;

@@ -1,5 +1,4 @@
-// export default Slider;
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,11 +8,10 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 
-// import "./styles.css";
+import "./style.css";
 
 // import required modules
-import { Pagination, Navigation, Scrollbar } from "swiper";
-import { Box } from "@chakra-ui/react";
+import { Pagination, Navigation } from "swiper";
 
 export default function Slider() {
   return (

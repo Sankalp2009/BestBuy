@@ -9,12 +9,11 @@ import {
   Text,
   Image,
   Highlight,
-  Button,
-  Icon,
 } from "@chakra-ui/react";
-import { AiOutlineShoppingCart } from "react-icons/ai";
 
 import banner from "../../Assets/Banner.jpg";
+import lap from "../../Assets/smallbnr.jpg";
+
 import "./style.css";
 import Slider from "./Slider";
 import ProductsInfo from "../../Components/Products/ProductsInfo";
@@ -121,7 +120,7 @@ const Product = () => {
             <Link color="blue">1 more $29.99 value</Link>
           </Heading>
           <Text></Text>
-          <Button
+          {/* <Button
             mt="10px"
             size="sm"
             varient="solid"
@@ -134,12 +133,12 @@ const Product = () => {
             }
           >
             Add to Cart
-          </Button>
+          </Button> */}
         </Box>
       </Flex>
-      <br />
-      <br />
       <Slider />
+      <br /><br />
+      <img src={lap} alt="lap" />
       {/* <ProductsInfo /> */}
     </>
   );
