@@ -139,7 +139,7 @@ const Product = () => {
       <Slider />
       <br /><br />
       <img src={lap} alt="lap" />
-      {/* <ProductsInfo /> */}
+      <ProductsInfo />
     </>
   );
 };

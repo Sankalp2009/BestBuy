@@ -3,6 +3,7 @@ import { useSearchParams, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import {
   Accordion,
@@ -13,10 +14,7 @@ import {
   Switch,
   Typography,
   FormControl,
-  Card,
-  CircularProgress
 } from "@mui/material";
-import logo from "../../Assets/logo.jpeg";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import {
@@ -89,8 +87,6 @@ const categories = [
   },
 ];
 
-const availability = ["Get It Shipped", "Pick up Nearby Store"];
-
 const brands = [
   "IPHONE",
   "AMAZON",
@@ -121,17 +117,29 @@ let offers = [
 
 const ProductsInfo = () => {
   const [filter, setFilter] = useState([]);
+  const [Prod, setProd] = useState([]);
   const [prodOffers, setprodOffers] = useState([]);
-  const [searchParams, setSearchParams] = useSearchParams({});
+  const [searchParams, setSearchParams] = useSearchParams("");
   const [filterClick, setFilterClick] = useState(false);
-  const { products, filterInfo,isError,isLoading } = useSelector((state) => state.products);
+  const { products, filterInfo } = useSelector((state) => state.products);
 
-  let Copydata = [];
+  const Main = async () => {
+    let response = await fetch(
+      `https://apricot-panther-kit.cyclic.app/api/v1/Products`
+    );
+    let data = await response.json();
+    let banu = data.data.product;
+    console.log(banu);
+    setProd(banu);
+  };
   const dispatch = useDispatch();
-  // const { id } = useParams();
-  // console.log(id);
-  Copydata = products;
-  console.log(Copydata)
+  const { id } = useParams();
+  console.log(id);
+
+  useEffect(() => {
+    Main();
+  }, [Prod]);
+
   useEffect(() => {
     dispatch(getData());
   }, []);
@@ -185,17 +193,7 @@ const ProductsInfo = () => {
     const payload = filterClick ? filterInfo : products;
     dispatch(sortData(val, payload));
   };
-  // if (isLoading) {
-  //   return (
-  //     <div className="progress">
-  //       <img src={logo} alt="logo" />
-  //       <CircularProgress />
-  //     </div>
-  //   );
-  // }
-  // if (isError) {
-  //   <div>Something Went Wrong</div>;
-  // }
+
   return (
     <div className="info">
       <div className="Container">
@@ -291,34 +289,6 @@ const ProductsInfo = () => {
               </AccordionDetails>
             </Accordion>
 
-            {/* brands */}
-            {/* <Accordion disableGutters={true}>
-              <AccordionSummary
-                id="panel3-header"
-                // aria-aria-controls="panel3-content"
-                expandIcon={<ExpandMoreIcon />}
-              >
-                Brands
-              </AccordionSummary>
-              <AccordionDetails className="checkBoxes">
-                {brands.map((el, i) => {
-                  return (
-                    <FormControlLabel
-                      label={el}
-                      key={i}
-                      control={
-                        <Checkbox
-                          value={el}
-                          checked={filterBrands.includes(el)}
-                          onChange={getBrands}
-                        />
-                      }
-                    />
-                  );
-                })}
-              </AccordionDetails>
-            </Accordion> */}
-
             {/* Price */}
             <Accordion disableGutters={true}>
               <AccordionSummary
@@ -380,8 +350,25 @@ const ProductsInfo = () => {
               </div>
             </div>
             <div className="productGrid">
-              {[...(filterClick ? filterInfo : products)].map((el, i) => {
-                return <Card {...el} key={i} />;
+              {Prod.map((el, _id) => {
+                return (
+                  <div className="banu">
+                    <Link to={`/products/single/${_id}`} className="solo">
+                      <div className="pick">
+                        <img src={el.image[0]} alt="prod_image" />
+                      </div>
+                      <div className="descDiv">
+                        <p className="name">{el.name}</p>
+                        <p className="ratings">
+                          <b>⭐⭐⭐⭐ {el.rating}</b>
+                        </p>
+                        <p className="price">
+                          Price: <i>${el.price}</i>{" "}
+                        </p>
+                      </div>
+                    </Link>
+                  </div>
+                );
               })}
             </div>
           </div>
