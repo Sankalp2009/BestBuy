@@ -364,10 +364,10 @@ const ProductsInfo = () => {
               </div>
             </div>
             <div className="productGrid">
-              {Prod.map((el, _id) => {
+              {Prod.map((el, id) => {
                 return (
                   <div className="banu">
-                    <Link to={`/products/single/${_id}`} className="solo">
+                    <Link to={`/products/single/${id}`} className="solo">
                       <div className="pick">
                         <img src={el.image[0]} alt="prod_image" />
                       </div>
