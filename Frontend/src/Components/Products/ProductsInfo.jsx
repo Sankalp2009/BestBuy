@@ -14,6 +14,8 @@ import {
   Switch,
   Typography,
   FormControl,
+  Select,
+  MenuItem
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
@@ -122,11 +124,24 @@ const ProductsInfo = () => {
   const [searchParams, setSearchParams] = useSearchParams("");
   const [filterClick, setFilterClick] = useState(false);
   const { products, filterInfo } = useSelector((state) => state.products);
+  const [sortValue, setSortValue] = useState("");
 
+  let CopyData = [];
+  CopyData = Prod;
+
+  const handleChange = (e) => {
+    setSortValue(e.target.value);
+    if (e.target.value === "htl") {
+      let copyData = products.sort((a, b) => b.price - a.price);
+      CopyData = copyData;
+    }
+    if (e.target.value === "lth") {
+      let copyData = products.sort((a, b) => a.price - b.price);
+      CopyData = copyData;
+    }
+  };
   const Main = async () => {
-    let response = await fetch(
-      `https://apricot-panther-kit.cyclic.app/api/v1/Products`
-    );
+    let response = await fetch(`${process.env.REACT_APP_URL}/api/v1/Products`);
     let data = await response.json();
     let banu = data.data.product;
     console.log(banu);
@@ -321,7 +336,7 @@ const ProductsInfo = () => {
           <div className="products">
             <div className="topBar">
               <div>
-                <p>No of products</p>
+                <h3>No of products</h3>
               </div>
               <div>
                 <p>
@@ -333,18 +348,17 @@ const ProductsInfo = () => {
                 <p>
                   Sort
                   <span>
-                    <select
+                    <Select
+                      sx={{ m: 1, minWidth: 130 }}
                       name="sortBy"
                       id=""
-                      onChange={(e) => {
-                        sortByPrice(e.target.value);
-                      }}
+                      onChange={(e) => handleChange(e)}
                     >
-                      <option value="">Best Match</option>
-                      <option value="htl">Price High-Low</option>
-                      <option value="lth">Price Low-High</option>
-                      <option value="sr">Highest Rated</option>
-                    </select>
+                      <MenuItem value="">Best Match</MenuItem>
+                      <MenuItem value="htl">Price High-Low</MenuItem>
+                      <MenuItem value="lth">Price Low-High</MenuItem>
+                      <MenuItem value="sr">Highest Rated</MenuItem>
+                    </Select>
                   </span>
                 </p>
               </div>

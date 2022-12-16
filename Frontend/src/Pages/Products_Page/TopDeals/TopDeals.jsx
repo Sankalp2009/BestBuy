@@ -6,9 +6,7 @@ import FeaturedTopDeals from "../../components/topDeals/FeaturedTopDeals";
 import ShopDealsByCategory from "../../components/topDeals/ShopDealsByCategory";
 import CourosalContainer from "../../components/topDeals/CourosalContainer";
 import { useState } from "react";
-import { useEffect } from "react";
 import ProductContainer from "../ProductPage/ProductContainer";
-import axios from "axios";
 let futureDeals = [
   {
     imgUrl:
