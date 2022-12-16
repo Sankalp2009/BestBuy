@@ -1,20 +1,40 @@
 const {Product} = require('./../Model/ProductModel');
+
+
 const APIFeatures = require ('.././Utils/ApiFeature');
 
+
+
 exports.getAllProduct= async (req, res) => 
+
+
 { 
     try
     {
          
         const features = new APIFeatures(Product.find(),req.query).filter().sort().paginate()
+
+
         const product = await features.query;
+
+
 
        //SEND RESPONSE
         res
+
+
         .status(202)
+
+
         .json({
+
+
             status: 'Success',
+
+
             result: product.length,
+
+
             data: { product }
         });
     }
@@ -26,13 +46,25 @@ exports.getAllProduct= async (req, res) =>
     }   
 }
 exports.getProductById = async (req, res) => 
+
+
 {
+
     try
+
+
     {
         const id = req.params.id;
+
+
+
         const product = await Product.findById(id);
+
+
         res
        .status(202)
+
+       
        .json({
             status: 'Success',
             result: product,
