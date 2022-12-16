@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+.home_container{
+    background: teal;
+margin-top: 0.1rem;
+}
+.home_container_header{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 10% 0 10% ;
+    gap: 10em;
+    padding: 1rem;
+}
+.home_container_header_left{
+/* margin: -3rem 0; */
+border: 1px;
+}
+.home_container_header_left>h1{
+    color: white;
+    font-size: 4em;
+    font-weight: 1000;
+    
+}
+.home_container_header_left>h4{
+    color: yellow;
+    font-size: 2em;
+    font-weight: 500;
+    text-align: left;
+margin-top: -1rem;
+}
+.home_container_header_right{
+padding: 0.2rem;
+}
+.home_container_header_right>h5{
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+    margin-top: 0.8rem;
+}
+.home_container_header_right>h6{
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 300;
+    text-align: left;
+    margin-top: 0.8rem;
+}
+.home_container_header_right>h6>span{
+    color: rgb(211, 211, 3);
+}
+.home_container_header_btn{
+    background:yellow;
+    border-radius: 0.4rem;
+    border: none;
+    padding: 0.4rem;
+    margin-top: 0.8rem;
+    margin-left: -9rem;
+    
+}
+.home_background{
+    background: teal;  
+}
+.home_shopdeals{
+    background: teal;
+    margin: 0 10% 0 10% ;
+}
+.home_shopdeals_heading{
+    text-align: left;
+    color: white;
+    font-size: medium;
+    font-weight: 500;
+}
+.home_shopdeals_items{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, max-content));
+    gap: 5px;
+    margin-top: 10px;
+   padding-bottom: 40px;
+}
+
+.home_shopdeals_image{
+    border: 2px solid teal;
+    max-width: 10rem;
+    border-radius: 50%;
+    background-size: cover;
+  
+}
+.home_shopdeals_name{
+    color: yellow;
+    font-size: small;
+}
+.home_newarrival{
+padding: 10px;
+text-align: left;
+}
+.home_newarrival_underline{
+  margin-left: 10px;
+    width: 5.5rem;
+    height: 5px;
+    background-color: black;
+    margin-top: -5px;
+}
+.home_newarrival_item{
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.home_newarrival_card{
+
+    border: 1px solid gray;
+}
+.home_newarrival_card>img{
+    width: 100%;
+    height: 80%;
+    padding: 10%;
+}
+.home_newarrival_card>h6{
+    color: rgb(59, 59, 247);
+    padding: 1rem;
+    padding-bottom: 2rem;
+}
