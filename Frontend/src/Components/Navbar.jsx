@@ -132,6 +132,9 @@ const NavBar = () => {
         <Link to="/Cart" style={{ textDecoration: 'none' }}>
           <Box color="white" fontSize="1.2rem" pl="1.5rem" pr="1.5rem">
             <Heading size="lg" fontSize="1.5rem" fontWeight="0.6rem">
+            {/* <Badge color="secondary" badgeContent={itemCount}>
+          <ShoppingCartIcon />{" "}
+        </Badge> */}
               <Icon as={AiOutlineShoppingCart} w={30} h={30}  />
               <Text
                 m="-10px"
