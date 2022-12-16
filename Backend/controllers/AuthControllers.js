@@ -1,15 +1,23 @@
 
 require("./auth")
+
+
 function isLoggedIn(req,res,next){
+
+
     req.user? next():res.sendStatus(401);
 }
 
 app.get("/",(req,res)=>{
+
+
     res.send('<a href="/auth/google">Authenticate with Google<a/>')
 });
 
 
 app.get("/auth/google",
+
+
    passport.authenticate("google",{scope:["email" , "profile"]})   
 )
 
