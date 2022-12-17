@@ -6,11 +6,17 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export default function Acoordian() {
+
   return (
+
     <div>
+
       <Accordion >
+
         <AccordionSummary
+
           expandIcon={<ExpandMoreIcon />}
+          
           aria-controls="panel1a-content"
           id="panel1a-header"
         >

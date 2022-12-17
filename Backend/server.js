@@ -1,10 +1,17 @@
 const mongoose = require('mongoose');
+
 const app = require('./app');
+
 const dotenv = require('dotenv');
+
 dotenv.config({path: './config.env'});
+
 
 //Assign the MongoDB configuration Database url
 const DB = process.env.DATABASE_URL;
+
+
+
 
 //1. Connecting to MongoDB
 var connection = mongoose.connect(DB)
