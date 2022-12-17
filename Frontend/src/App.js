@@ -1,6 +1,7 @@
 
 import './App.css';
 import Navbar from './Components/Navbar';
+import Login from './Pages/Login';
 import MainRoutes from './Pages/MainRoutes';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
+      <Login />
       <MainRoutes/>
     </div>
   );
