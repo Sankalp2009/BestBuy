@@ -15,6 +15,9 @@
 .title {
   margin-bottom: 3%;
 }
+#panel1-header,#panel2-header,#panel3-header,#panel4-header{
+  font-weight: 700;
+}
 .Container {
   width: 80rem;
   margin: auto;
@@ -89,7 +92,7 @@
 .topBar {
   height: 100px;
   width: 100%;
-  background-color: #f4f6f9;
+  background-color: rgb(46, 141, 141);
   display: flex;
   box-sizing: border-box;
   padding: 0 45px;
@@ -101,12 +104,13 @@
   height: 100%;
   box-sizing: border-box;
   padding: 10px;
+  color: white;
 }
 .topBar > div:first-child {
   font-size: 14px;
   display: flex;
   align-items: center;
-  color: #55555a;
+  color: white;
 }
 .topBar > div:last-child {
   font-size: 17.5px;

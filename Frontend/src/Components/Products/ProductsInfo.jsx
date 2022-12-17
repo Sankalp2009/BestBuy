@@ -231,7 +231,7 @@ const ProductsInfo = () => {
                     <Typography key={i} className="options">
                       <a
                         href={el.link}
-                        style={{ textDecoration: "none", color: "#1d252c" }}
+                        style={{ textDecoration: "none", color: "#1d252c",padding:"2%" }}
                       >
                         {el.title}
                       </a>
@@ -349,7 +349,7 @@ const ProductsInfo = () => {
                   Sort
                   <span>
                     <Select
-                      sx={{ m: 1, minWidth: 130 }}
+                      sx={{ m: 1, minWidth: 130 ,color:"white"}}
                       name="sortBy"
                       id=""
                       onChange={(e) => handleChange(e)}

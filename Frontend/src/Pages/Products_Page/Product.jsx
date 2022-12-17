@@ -22,8 +22,8 @@ const Product = () => {
   return (
     <>
       <h1 style={{ textAlign: "left" }}>Laptops</h1>
-      <img src={banner} className="banner" alt="banner" />
-      <Box h="180px" bg="#0046bf" mt="50px">
+      {/* <img src={banner} className="banner" alt="banner" /> */}
+      <Box h="180px" bg="teal" mt="50px">
         <Flex padding="20px">
           <Box color="white" lineHeight="3rem" ml="10%">
             <Heading>
