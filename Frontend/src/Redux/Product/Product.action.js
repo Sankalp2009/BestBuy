@@ -18,7 +18,7 @@ export const getData = () => async (dispatch) => {
     try {
         let response = await axios.get(`${process.env.REACT_APP_URL}/api/v1/Products`);
         const data = response.data
-        console.log(data)
+        // console.log(data)
         dispatch({type:GET_REQUEST_FILTER,payload:data})
 
 

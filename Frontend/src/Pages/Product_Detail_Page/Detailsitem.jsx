@@ -11,46 +11,32 @@ const Ba1 = styled.button`
     background-color: #fff200;
   }
 `;
-const Detailsitem = ({ title, image, price }) => {
-  const [state, setState] = useState([]);
+const Detailsitem = () => {
   const { id } = useParams();
-  const dispatch = useDispatch();
-  // const carts = useSelector((state) => state.cartreducer.carts);
+  const [Prod, setProd] = useState([]);
 
-  const send = (e) => {
-    console.log(e);
-    // dispatch(ADD(e));
+  const Optimus = async () => {
+    let response = await fetch(
+      `${process.env.REACT_APP_URL}/api/v1/Products/${id}`
+    );
+    let data = await response.json();
+    console.log(data);
+    setProd(data.data.product);
   };
-  // useEffect(() => {
-  //   localStorage.setItem("cartItems", JSON.stringify(carts));
-  // }, [carts]);
-  // console.log(data);
-
-  // useEffect(() => {
-  //   async function getData() {
-  //     let { data } = await axios.get(
-  //       `${process.env.REACT_APP_URL}/api/v1/Products/${id}`
-  //     );
-  //     console.log(data);
-  //     setData(data.data);
-  //   }
-  //   getData();
-  // }, []);
+  const style = {
+    borderRadius: "1rem",
+    width: "150px",
+    height: "150px",
+  };
   useEffect(() => {
-    async function getData() {
-      let data = await axios.get(
-        `${process.env.REACT_APP_URL}/api/v1/Products/${id}`
-      );
-      console.log(data);
-    }
-    getData();
-  }, [state]);
+    Optimus();
+  }, [id]);
 
   return (
     <>
       <div style={{ width: "80%", margin: "auto", marginTop: "30px" }}>
         <div>
-          <h1 style={{ fontWeight: "400", textAlign: "left" }}>{title}</h1>
+          <h1 style={{ fontWeight: "400", textAlign: "left" }}>Name : {Prod.name}</h1>
           <div
             style={{
               display: "flex",
@@ -82,7 +68,7 @@ const Detailsitem = ({ title, image, price }) => {
                 height: "500px",
               }}
             >
-              <img src={image} alt="" />
+              <img src={Prod.Images} alt="" />
             </div>
             <div style={{ display: "flex" }}>
               <div style={{ width: "60%", textAlign: "left" }}>
@@ -195,7 +181,7 @@ const Detailsitem = ({ title, image, price }) => {
                 color: "#bb0628",
               }}
             >
-              ${price}
+              Price : ${Prod.price}
             </div>
             <div
               style={{

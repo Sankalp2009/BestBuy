@@ -15,7 +15,7 @@ import {
   Typography,
   FormControl,
   Select,
-  MenuItem
+  MenuItem,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
@@ -132,14 +132,15 @@ const ProductsInfo = () => {
   const handleChange = (e) => {
     setSortValue(e.target.value);
     if (e.target.value === "htl") {
-      let copyData = products.sort((a, b) => b.price - a.price);
+      let copyData = products.sort();
       CopyData = copyData;
     }
     if (e.target.value === "lth") {
-      let copyData = products.sort((a, b) => a.price - b.price);
+      let copyData = products.sort();
       CopyData = copyData;
     }
   };
+
   const Main = async () => {
     let response = await fetch(`${process.env.REACT_APP_URL}/api/v1/Products`);
     let data = await response.json();
@@ -147,9 +148,10 @@ const ProductsInfo = () => {
     console.log(banu);
     setProd(banu);
   };
+
   const dispatch = useDispatch();
-  const { id } = useParams();
-  console.log(id);
+  // const { id } = useParams();
+  // console.log(id);
 
   useEffect(() => {
     Main();
@@ -203,12 +205,6 @@ const ProductsInfo = () => {
     }
   };
 
-  const sortByPrice = (val) => {
-    setFilterClick(true);
-    const payload = filterClick ? filterInfo : products;
-    dispatch(sortData(val, payload));
-  };
-
   return (
     <div className="info">
       <div className="Container">
@@ -231,7 +227,7 @@ const ProductsInfo = () => {
                     <Typography key={i} className="options">
                       <a
                         href={el.link}
-                        style={{ textDecoration: "none", color: "#1d252c",padding:"2%" }}
+                        style={{ textDecoration: "none", color: "#1d252c" }}
                       >
                         {el.title}
                       </a>
@@ -349,7 +345,7 @@ const ProductsInfo = () => {
                   Sort
                   <span>
                     <Select
-                      sx={{ m: 1, minWidth: 130 ,color:"white"}}
+                      sx={{ m: 1, minWidth: 130 }}
                       name="sortBy"
                       id=""
                       onChange={(e) => handleChange(e)}
@@ -364,26 +360,24 @@ const ProductsInfo = () => {
               </div>
             </div>
             <div className="productGrid">
-              {Prod.map((el, id) => {
-                return (
-                  <div className="banu">
-                    <Link to={`/products/single/${id}`} className="solo">
-                      <div className="pick">
-                        <img src={el.image[0]} alt="prod_image" />
-                      </div>
-                      <div className="descDiv">
-                        <p className="name">{el.name}</p>
-                        <p className="ratings">
-                          <b>⭐⭐⭐⭐ {el.rating}</b>
-                        </p>
-                        <p className="price">
-                          Price: <i>${el.price}</i>{" "}
-                        </p>
-                      </div>
-                    </Link>
-                  </div>
-                );
-              })}
+              {Prod.map((el, id) => (
+                <div className="banu" key={el._id}>
+                  <Link to={`/${el._id}`} className="solo">
+                    <div className="pick">
+                      <img src={el.image[0]} alt="prod_image" />
+                    </div>
+                    <div className="descDiv">
+                      <p className="name">{el.name}</p>
+                      <p className="ratings">
+                        <b>⭐⭐⭐⭐ {el.rating}</b>
+                      </p>
+                      <p className="price">
+                        Price: <i>${el.price}</i>{" "}
+                      </p>
+                    </div>
+                  </Link>
+                </div>
+              ))}
             </div>
           </div>
         </div>

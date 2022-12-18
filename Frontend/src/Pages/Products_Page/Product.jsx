@@ -19,6 +19,7 @@ import Slider from "./Slider";
 import ProductsInfo from "../../Components/Products/ProductsInfo";
 
 const Product = () => {
+  
   return (
     <>
       <h1 style={{ textAlign: "left" }}>Laptops</h1>
